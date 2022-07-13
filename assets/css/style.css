@@ -1,9 +1,11 @@
-
+* {
+    background-color: rgb(43, 89, 226);
+}
 
 h1{
     text-align: left;
-    color: blue;
-    font-size: small;
+    color: rgb(192, 161, 221);
+    font-size: large;
     /* background-color: black; */
     padding: 0;
     display: flex;
@@ -38,3 +40,35 @@ background-color: rgb(108, 159, 176);
     top: 50%;
     left: 50%;
   }
+
+  form
+	{
+	
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 18rem;
+    font-size: 2.5rem;
+    
+    
+	}
+
+    .quiz{
+        font-size: 2.5rem;
+        margin: .1rem;
+       background-color:aqua;
+      padding-left: 1rem;
+       box-sizing:border-box;
+       width: 25rem;
+       text-align: left;
+    }
+
+    .quiz:hover{
+    cursor: pointer;
+    background-color:blueviolet;
+    
+    }
+
+    /* .container {
+        box-sizing:border-box;
+        width: 5rem;
+    } */
