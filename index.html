@@ -10,18 +10,66 @@
 </head>
 <body>
  <h1>View Highscores</h1>
+ <div id="introContainer">
+    <div class="introContainerBox">
     <h2>Coding Knowledge Check</h2>
     <p>This is a timed knowledge check that will test your java script coding knowledge.
         The faster you complete the prompts the more points you will score!
         You may complete this Knowledge Check as many times as you want to 
-        try to increase your highscore! 
-    </p>
-    <div class = 'button-center'>
-       
+        try to increase your highscore!
+        <div id="startQuizBtn">
+            <button type= "button" button class ="beginend" button id="start_btn">Begin!</button> 
+    </div>
+    </div>
+</div>       
+   <div>
+  
+        </div>
+    
+ </div>
+</p>
 
-    <button class="begin"><a href="quiz.html">Begin!</a></button>
+    <div id="questionContainer" class="hide">
+        <div class="questionsContainer">
+            <div id = "question"></div>
+            <div id="myQuestions">
+                <p><button id="btn0" class="btn btn-dark"></button></p>
+                <p><button id="btn1" class="btn btn-dark"></button></p>
+                <p><button id="btn2" class="btn btn-dark"></button></p>
+                <p><button id="btn3" class="btn btn-dark"></button></p>
+                <hr id="lineBreak" style="display: none" class="mt-4">
+                <p id="answerCheck" style="display: none;"></p>
+            </div>
+            </div>
+            
+
+</div>
+    </div>
+      <!-- score div -->
+      <div class="hide pl-5 ml-2 pt-5 justify-content-center font-weight-bold" id="summary">
+        <div class="col-2"></div>
+        <div class="col-8 text-left">
+            <h2 class="font-weight-bold pt-2 pb-3 m-2">Your final score is <span id="finalScore"></span> !</h2>
+            <form>
+                <p class="pt-2 pb-3 m-2">Enter your initials: <input id="initialInput" class="form-control pt-2 pb-3 mt-2" type="text">
+                <button type="submit" id="submitInitialBtn" class="btn btn-info mt-3">Submit</button>
+                </p>
+            </form>
+        </div>
+    <div class="col-2"></div>
+</div>
+
+
+ <div id="results"></div>
    </div>
 
-    <script src="./assets/js/script.js"></script>
+
+
+
+    
 </body>
+<footer>
+    <script src="./assets/js/script.js"></script>
+</footer>
+
 </html>

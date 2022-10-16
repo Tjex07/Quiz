@@ -1,10 +1,10 @@
-* {
-    background-color: rgb(43, 89, 226);
+body {
+    background-color: azure;
 }
 
 h1{
     text-align: left;
-    color: rgb(192, 161, 221);
+    color: rgb(78, 27, 126);
     font-size: large;
     /* background-color: black; */
     padding: 0;
@@ -14,32 +14,48 @@ h1{
 
 h2{
     text-align: center;
-    margin-top: 10rem;
-    font-size: 2.5rem;
+    margin-top: 4rem;
+    font-size: 1.5rem;
 }
 
 p{
     text-align: center;
-    font-size:  1.5rem ;
-    padding-left: 35%;
-    padding-right: 35%;
+    font-size:  1.0rem ;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
-.begin{
-display:flex;
-justify-content: center;
+.beginend{
+display:inline-block;
+top: 50%;
+left: 64%;
+transform: translate(-50% -50%);
 font-size: 1.5rem;
 border: 3px solid rgb(72, 71, 71);
 position: relative;
 background-color: rgb(108, 159, 176);
+padding: 15px 30px;
+font-size: 25px;
+font-weight: 500;
+border-radius: 5px;
+cursor: pointer;
+color:bisque;
 }
 
-.button-center {
+.btn:focus, .btn:active, .btn:visited {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #343a40;
+}
+
+
+
+/* .button-center {
     margin: 0;
     position: relative;
-    top: 50%;
-    left: 50%;
-  }
+
+    left: 45%;
+  } */
 
   form
 	{
@@ -72,3 +88,26 @@ background-color: rgb(108, 159, 176);
         box-sizing:border-box;
         width: 5rem;
     } */
+
+    .introContainerBox{
+        display: inline-block;
+        justify-content: center;
+        width: 540px; 
+        background-color: rgb(108, 159, 176);
+        border-radius: 5px;
+        margin-right: 50%;
+        margin-left: 35%;
+        border: 3px solid black;
+         margin-top: 5rem;
+        color:bisque;
+        
+    }
+    
+    #finalScore {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    .hide {
+    display:none;
+    }
