@@ -111,3 +111,8 @@ color:bisque;
     .hide {
     display:none;
     }
+
+    .scoreTime {
+        display: flex;
+        flex-direction: column;
+    }

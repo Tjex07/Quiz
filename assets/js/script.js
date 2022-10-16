@@ -1,17 +1,22 @@
 var introContainerBox = document.getElementById('introContainer');
+var timerContainer = document.getElementById('timerContainer');
 var quizContainer = document.getElementById('quizcontainer');
 var resultsContainer = document.getElementById('results');
 var submitButton = document.getElementById('submit');
-var questionEl = document.getElementById('question')
+var questionEl = document.getElementById('question');
 var start_btn = document.getElementById('start_btn');
 var startQuizBtn = document.getElementById("start-quiz-button");
-// var beginend = document.getElementById('beginend')
-var questionContainer = document.getElementById('questionContainer')
-var answerCorrect = document.getElementById('answerCorrect')
-var questionsList = 0
-var arrayShuffledQuestions
-var myQuestionEl = document.getElementById("myQuestions")
-var summaryEl = document.getElementById("summary")
+// var beginend = document.getElementById('beginend');
+var questionContainer = document.getElementById('questionContainer');
+var answerCorrect = document.getElementById('answerCorrect');
+var questionsList = 0;
+var arrayShuffledQuestions;
+var myQuestionEl = document.getElementById("myQuestions");
+var summaryEl = document.getElementById("summary");
+var timer = document.getElementById("timer");
+var timeLeft = document.getElementById("timeLeft");
+var timesUp = document.getElementById("timesUp");
+// var timeLimit = 60;
 
 const myQuestions = [
     {
@@ -41,12 +46,37 @@ const myQuestions = [
     },
 ]
 
+var timeLimit = 60;
 var quizBegin = function () {
     introContainerBox.classList.add('hide');
     questionContainer.classList.remove('hide');
+    timerContainer.classList.remove('hide');
+    timeLeft.textContent = timeLimit;
     arrayShuffledQuestions = myQuestions.sort(() => Math.random() - 0.5)
-    // setTime()
     displayQuestion()
+
+
+
+function timer(){
+    var timeLimit = 60;
+    console.log(timeLimit)
+var startTimer= setInterval(function() {
+if (timeLimit === 60) {
+    timeLimit--;
+    console.log(timeLimit)
+} else {
+    (timeLimit === 0)
+    clearInterval(startTimer);
+    endGame();
+}
+    if (questionsList < arrayShuffledQuestions.length - 1) {
+        endGame();
+    
+}
+},1000);
+
+quizBegin();
+};
 };
 
 start_btn.addEventListener("click", quizBegin)
