@@ -15,7 +15,6 @@ var summaryEl = document.getElementById("summary");
 var timer = document.getElementById("timer");
 var timeLeft = document.getElementById("timeLeft");
 var timesUp = document.getElementById("timesUp");
-// var timeLimit = 60;
 
 const myQuestions = [
     {
@@ -56,31 +55,21 @@ var quizBegin = function () {
     timer();
 
 };
-// figure out timer function, its not executing
-var timer = function () {
-   
-var startTimer = setInterval(function() {
-if (timeLimit > 1) {
-    timeLeft.textContent = timeLimit - 1;
-    timeLimit--;
-    console.log(timeLimit)
-} else  {
-    (timeLimit === 0)
-    clearInterval(startTimer);
-    endGame();
-}
-     if (questionsList < arrayShuffledQuestions.length - 1) {
-      ;
-    
-}
-},1000);
 
+var timer = function () {
+    var startTimer = setInterval(function () {
+        if (timeLimit > 1) {
+            timeLeft.textContent = timeLimit - 1;
+            timeLimit--;
+        } else {
+            (timeLimit === 0)
+            clearInterval(startTimer);
+            endGame();
+        }
+    }, 1000);
 };
 
-
 start_btn.addEventListener("click", quizBegin)
-
-
 
 var displayQuestion = function () {
     var question = arrayShuffledQuestions[questionsList]
@@ -103,13 +92,25 @@ function checkAnswer(event) {
             displayQuestion()
         } else {
             //decrease time by x seconds when incorrect answer is chosen
+            timeLimit -= 5;
+            timeLeft.textContent = timeLimit;
             questionsList++
             displayQuestion()
         };
     };
 };
 
-myQuestionEl.addEventListener("click", checkAnswer)
+myQuestionEl.addEventListener("click", checkAnswer);
+
+
+
+
+
+
+
+
+
+
 
 function endGame() {
     summaryEl.classList.remove('hide');
