@@ -6,7 +6,6 @@ var submitButton = document.getElementById('submit');
 var questionEl = document.getElementById('question');
 var start_btn = document.getElementById('start_btn');
 var startQuizBtn = document.getElementById("start-quiz-button");
-// var beginend = document.getElementById('beginend');
 var questionContainer = document.getElementById('questionContainer');
 var answerCorrect = document.getElementById('answerCorrect');
 var questionsList = 0;
@@ -53,31 +52,31 @@ var quizBegin = function () {
     timerContainer.classList.remove('hide');
     timeLeft.textContent = timeLimit;
     arrayShuffledQuestions = myQuestions.sort(() => Math.random() - 0.5)
-    displayQuestion()
+    displayQuestion();
+    timer();
 
-
-
-function timer(){
-    var timeLimit = 60;
-    console.log(timeLimit)
-var startTimer= setInterval(function() {
-if (timeLimit === 60) {
+};
+// figure out timer function, its not executing
+var timer = function () {
+   
+var startTimer = setInterval(function() {
+if (timeLimit > 1) {
+    timeLeft.textContent = timeLimit - 1;
     timeLimit--;
     console.log(timeLimit)
-} else {
+} else  {
     (timeLimit === 0)
     clearInterval(startTimer);
     endGame();
 }
-    if (questionsList < arrayShuffledQuestions.length - 1) {
-        endGame();
+     if (questionsList < arrayShuffledQuestions.length - 1) {
+      ;
     
 }
 },1000);
 
-quizBegin();
 };
-};
+
 
 start_btn.addEventListener("click", quizBegin)
 
@@ -89,8 +88,8 @@ var displayQuestion = function () {
     for (var i = 0; i < question.answers.length; i++) {
         document.getElementById("btn" + i).textContent = question.answers[i]
 
-    }
-}
+    };
+};
 
 function checkAnswer(event) {
     if (questionsList === arrayShuffledQuestions.length - 1) {
@@ -106,16 +105,16 @@ function checkAnswer(event) {
             //decrease time by x seconds when incorrect answer is chosen
             questionsList++
             displayQuestion()
-        }
-    }
-}
+        };
+    };
+};
 
 myQuestionEl.addEventListener("click", checkAnswer)
 
 function endGame() {
     summaryEl.classList.remove('hide');
     questionContainer.classList.add('hide');
-}
+};
 
 
 
