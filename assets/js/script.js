@@ -143,7 +143,8 @@ function endGame() {
     summaryEl.classList.remove('hide');
     questionContainer.classList.add('hide');
     finalScoreEl.textContent = finalScore;
-
+    scoreContainer.classList.remove('hide')
+    
 };
 
  
