@@ -26,7 +26,7 @@ var submitScoreBtn = document.getElementById("submitScoreBtn")
 var initials  = document.getElementById("initials")
 
 
-
+// The array of questions used in the quiz called by the myQuestions variable
 const myQuestions = [
     {
         question: 'JavaScript has a file extension of?',
@@ -54,7 +54,7 @@ const myQuestions = [
         answers: ['a: Alert()', 'b: Prompt()', 'c: Confirm()', 'd: MSG()'],
     },
 ]
-
+ //sets the time limit and displays the quizz
 var timeLimit = 60;
 var quizBegin = function () {
     introContainerBox.classList.add('hide');
@@ -66,7 +66,7 @@ var quizBegin = function () {
     timer();
 
 };
-
+// starts the timer countdown
 var timer = function () {
     var startTimer = setInterval(function () {
         if (timeLimit > 1) {
@@ -80,7 +80,7 @@ var timer = function () {
     }, 1000);
 };
 
-
+//the event listner that calls quizBegin with a click
 start_btn.addEventListener("click", quizBegin)
 
 var displayQuestion = function () {
@@ -91,7 +91,7 @@ var displayQuestion = function () {
 
     };
 };
-
+//checks to see if the answer is correct and that time is not equal to 0.  If the answer is correct 20 points are added to the users score.  If wrong time is deperecated by 5 seconds.
 function checkAnswer(event) {
     if (questionsList === arrayShuffledQuestions.length - 1) {
         endGame();
@@ -121,11 +121,10 @@ function checkAnswer(event) {
 var savedHighScores = localStorage.getItem("high scores");
 var scoresArray;
 
-
+//Submits final scores and initials
 submitScoreBtn.addEventListener("click", function(event){
     var initialsInput = document.querySelector('#initials').value;
-// preventDefault();
-//highscore functionality
+
 var savedData = JSON.parse(localStorage.getItem("previousScore")) || []
 var newScore = {
     finalScore: finalScore,
@@ -138,7 +137,7 @@ localStorage.setItem("previousScore", JSON.stringify(savedData));
 
 myQuestionEl.addEventListener("click", checkAnswer);
 
-
+//ends the game and hides the quiz container and shows the final score and initials input
 function endGame() {
     summaryEl.classList.remove('hide');
     questionContainer.classList.add('hide');
