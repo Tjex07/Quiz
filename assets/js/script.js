@@ -11,10 +11,21 @@ var answerCorrect = document.getElementById('answerCorrect');
 var questionsList = 0;
 var arrayShuffledQuestions;
 var myQuestionEl = document.getElementById("myQuestions");
-var summaryEl = document.getElementById("summary");
+var summaryEl = document.getElementById("summary")
+;
 var timer = document.getElementById("timer");
 var timeLeft = document.getElementById("timeLeft");
 var timesUp = document.getElementById("timesUp");
+
+var finalScoreEl = document.getElementById("finalScore");
+var highScoreSection = document.getElementById("highScoreSection");
+var score = document.getElementById("score")
+var answersCorrect = 0
+var finalScore = 0
+var submitScoreBtn = document.getElementById("submitScoreBtn")
+var initials  = document.getElementById("initials")
+
+
 
 const myQuestions = [
     {
@@ -62,12 +73,13 @@ var timer = function () {
             timeLeft.textContent = timeLimit - 1;
             timeLimit--;
         } else {
-            (timeLimit === 0)
+            (timeLimit <= 0)
             clearInterval(startTimer);
             endGame();
         }
     }, 1000);
 };
+
 
 start_btn.addEventListener("click", quizBegin)
 
@@ -82,13 +94,17 @@ var displayQuestion = function () {
 
 function checkAnswer(event) {
     if (questionsList === arrayShuffledQuestions.length - 1) {
-        endGame()
+        endGame();
+        timeLimit = 0;
     } else {
         var answerSelection = event.target.textContent
         console.log(event.target.textContent)
         var correctAnswer = arrayShuffledQuestions[questionsList].correctAnswer
         if (answerSelection === correctAnswer) {
-            questionsList++
+            questionsList++;
+            finalScore += 20;
+            console.log(finalScore)
+            finalScore.textContent = finalScore;
             displayQuestion()
         } else {
             //decrease time by x seconds when incorrect answer is chosen
@@ -100,26 +116,35 @@ function checkAnswer(event) {
     };
 };
 
+
+
+var savedHighScores = localStorage.getItem("high scores");
+var scoresArray;
+
+
+submitScoreBtn.addEventListener("click", function(event){
+    var initialsInput = document.querySelector('#initials').value;
+// preventDefault();
+//highscore functionality
+var savedData = JSON.parse(localStorage.getItem("previousScore")) || []
+var newScore = {
+    finalScore: finalScore,
+    initialsInput: initialsInput
+}
+savedData.push(newScore);
+localStorage.setItem("previousScore", JSON.stringify(savedData));
+
+})
+
 myQuestionEl.addEventListener("click", checkAnswer);
-
-
-
-
-
-
-
-
-
 
 
 function endGame() {
     summaryEl.classList.remove('hide');
     questionContainer.classList.add('hide');
+    finalScoreEl.textContent = finalScore;
+
 };
 
-
-
-
-
-
+ 
 
