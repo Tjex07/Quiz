@@ -38,6 +38,6 @@
  https://img.shields.io/badge/license--green.svg
 https://opensource.org/licenses/
   
-  <img src="./assets/images/grindScheduler.PNG">
+  <img src="./assets/Images/Quiz_Capture.PNG">
   
   https://tjex07.github.io/Quiz/
