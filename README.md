@@ -23,7 +23,7 @@
   undefined
 
   ## Choose your License! 
-  This project is license under 
+  This project is licensed under https://img.shields.io/badge/license--green.svg.
 
   ## If you are contributing, please provide your email address. 
   Email me at Tjex07@hotmail.com
